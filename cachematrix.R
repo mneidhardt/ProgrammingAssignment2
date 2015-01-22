@@ -2,6 +2,9 @@
 ##  This means that inverting the same matrix twice only causes the actual inversion
 ##  to happen first time, the second time it is called, the previously computed
 ##  solution is returned.
+##  Under normal circumstances, caching the result of a computation needs to take into account the
+##  possibility of the underlying data having changed. I have not made any attempt at that here, though.
+##  Also, I do not check the input matrix for neither singularity or squareness.
 
 ##  Function makeCacheMatrix creates an object that stores a matrix, possibly
 ##  its inverse, and additionally, methods for getting & setting the original matrix
