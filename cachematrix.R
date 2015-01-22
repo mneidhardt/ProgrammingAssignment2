@@ -1,10 +1,21 @@
-## Put comments here that give an overall description of what your
-## functions do
+# Two functions that together provide cached inversion of matrices.
+# This means that inverting the same matrix twice only causes the actual inversion
+# to happen first time, the second time it is called, the previously computed
+# solution is returned.
 
-## Write a short comment describing this function
+## Function makeCacheMatrix creates an object that stores a matrix together with
+# methods for inverting it, getting it and setting it.
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(mat = matrix()) {
+    minverse <- NULL
+    set <- function(newmatrix) {
+        mat <- newmatrix
+        minverse <- NULL
+    }
 
+    get <- function() mat
+    setminverse <- function(minv) minverse <<- minv
+    getminverse <- function() minverse
 }
 
 
